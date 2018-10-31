@@ -40,16 +40,16 @@
 /* **********************************************
 3. Arrays in objects
 ********************************************** */
-const food = {
-  meals: ['breakfast',
-  'second breakfast',
-  'elevenses',
-  'lunch',
-  'afternoon tea',
-  'dinner',
-  'supper']
-}
-console.log(food.meals[3]);
+// const food = {
+//   meals: ['breakfast',
+//   'second breakfast',
+//   'elevenses',
+//   'lunch',
+//   'afternoon tea',
+//   'dinner',
+//   'supper']
+// }
+// console.log(food.meals[3]);
 
 
 
@@ -59,8 +59,28 @@ console.log(food.meals[3]);
 4. Arrays of objects
 ********************************************** */
 
+const pam = {
+  name: 'Pam Beesly',
+  jobTitle: 'Receptionist'
+};
 
+const jim = {
+  name: 'Jim Halpert',
+  jobTitle: 'Salesman'
+};
 
+const michael = {
+  name: 'Michael Scott',
+  jobTitle: 'Regional Manager'
+};
+
+const dunderStaff = [
+  pam, jim, michael
+];
+
+for (let i in dunderStaff){
+  console.log(`${dunderStaff[i].name} is a ${dunderStaff[i].jobTitle}`);
+}
 
 
 
