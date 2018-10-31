@@ -171,7 +171,7 @@
 /* **********************************************
 7. Factory Functions with LOTR
 ********************************************** */
-function createCharacter(name, nickname, race, origin, attack, defense) {
+function createCharacter(name, nickname, race, origin, attack, defense, weapon) {
   return {
     name,
     nickname,
@@ -179,8 +179,9 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
     origin,
     attack,
     defense,
+    weapon,
     describe: function(){
-      return `${this.Name} is a ${this.Race} from ${this.Origin}.`;
+      return `${this.name} is a ${this.race} from ${this.origin} who uses ${this.weapon}.`;
     },
     evaluateFight: function(character) {
       let x = 0;
@@ -194,22 +195,36 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
       }
       return `${character.name} takes ${x} damage and ${this.name} receives ${y} damage"`;
     }
-
-
-
-
-  };
+  }
 };
 
 const character = [
-
-
+  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6),
+  createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5), 
+  createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
+  createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8),
+  createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendell', 6, 7)
 ];
 
+// retrive nickname of aragorn from characters, then call describe method
+const aragorn = character.find(function(i){
+  return i.nickname === 'aragorn';});
 
-const gandalf = createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6);
-const legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)
-console.log(gandalf.evaluateFight(legolas));
+console.log(aragorn.describe());
+
+const allHobbits = character.filter(function(i){
+  return i.race === 'Hobbit';
+});
+
+console.log(allHobbits);
+
+const aboveFive = character.filter(function(i){
+  return i.attack > 5;
+});
+
+console.log(aboveFive);
+// console.log(gandalf.evaluateFight(legolas));
 
 /* **********************************************
 8. BONUS: A Database Search
