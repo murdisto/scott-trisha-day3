@@ -87,34 +87,34 @@
 /* **********************************************
 5. Properties that aren't there
 ********************************************** */
-const pam = {
-  name: 'Pam Beesly',
-  jobTitle: 'Receptionist',
-  boss: 'Michael Scott',
-};
+// const pam = {
+//   name: 'Pam Beesly',
+//   jobTitle: 'Receptionist',
+//   boss: 'Michael Scott',
+// };
 
-const jim = {
-  name: 'Jim Halpert',
-  jobTitle: 'Salesman',
-  boss: 'Michael Scott',
-};
+// const jim = {
+//   name: 'Jim Halpert',
+//   jobTitle: 'Salesman',
+//   boss: 'Michael Scott',
+// };
 
-const michael = {
-  name: 'Michael Scott',
-  jobTitle: 'Regional Manager',
-};
+// const michael = {
+//   name: 'Michael Scott',
+//   jobTitle: 'Regional Manager',
+// };
 
-const dunderStaff = [
-  pam, jim, michael
-];
+// const dunderStaff = [
+//   pam, jim, michael
+// ];
 
-for (let i in dunderStaff){
-  if (dunderStaff[i].boss === undefined){
-    console.log(`"${dunderStaff[i].jobTitle} ${dunderStaff[i].name} doesn't report anybody"`);
-  } else {
-    console.log(`"${dunderStaff[i].jobTitle} ${dunderStaff[i].name} reports to ${dunderStaff[i].boss}."`);
-};
-
+// for (let i in dunderStaff){
+//   if (dunderStaff[i].boss === undefined){
+//     console.log(`"${dunderStaff[i].jobTitle} ${dunderStaff[i].name} doesn't report anybody"`);
+//   } else {
+//     console.log(`"${dunderStaff[i].jobTitle} ${dunderStaff[i].name} reports to ${dunderStaff[i].boss}."`);
+//   }
+// }
 
 /*
 
@@ -123,7 +123,45 @@ for (let i in dunderStaff){
 6. Cracking the code
 ********************************************** */
 
+const cipher = {
+  a: 2,
+  b: 3,
+  c: 4, 
+  d: 5
+};
 
+// cipher[word[0]]
+
+function decode(str){
+  const wordArray = str.split(' ');
+  // let decodedArray = [];
+  return wordArray.map(word => { 
+    const firstLetter = word[0];
+    const location = cipher[firstLetter] - 1;
+
+    if (isNaN(location)) {
+      return ' ';
+    } else {
+      return word[location];
+    }
+    //console.log(location);
+    // if (word[0] === Object.keys((cipher)[0])){
+    //   decodedArray.push(word.charAt(1));
+    // } else if (word[0] === Object.keys((cipher)[1])){
+    //   decodedArray.push(word.charAt(2));
+    // } else if (word[0] === Object.keys((cipher)[2])){
+    //   decodedArray.push(word.charAt(3));
+    // } else if (word[0] === Object.keys((cipher)[3])){
+    //   decodedArray.push(word.charAt(4));
+    // }  else {
+    //   decodedArray.push(' ');
+    // } 
+  })
+    .join('');
+  
+}
+
+console.log(decode('craft block argon meter bells brown croon droop'));
 
 
 
