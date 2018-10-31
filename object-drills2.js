@@ -23,24 +23,33 @@
 2. Iterating over an object's properties
 ********************************************** */
 
-const myObj = {
-  foo: 'bee',
-  bar: 'celona',
-  fum: 'fee',
-  quux: 'something',
-  spam: 'is good'
-};
-
-for (const key in myObj){
- console.log(`key: ${key} value: ${myObj[key]}`);
-}
+// const myObj = {
+//   foo: 'bee',
+//   bar: 'celona',
+//   fum: 'fee',
+//   quux: 'something',
+//   spam: 'is good'
+// };
+//
+// for (const key in myObj){
+//  console.log(`key: ${key} value: ${myObj[key]}`);
+// }
 
 
 
 /* **********************************************
 3. Arrays in objects
 ********************************************** */
-
+const food = {
+  meals: ['breakfast',
+  'second breakfast',
+  'elevenses',
+  'lunch',
+  'afternoon tea',
+  'dinner',
+  'supper']
+}
+console.log(food.meals[3]);
 
 
 
