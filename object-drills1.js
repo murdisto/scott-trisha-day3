@@ -20,8 +20,20 @@ console.log(creatMyObject());
 Object updater
 ********************************************** */
 
+const myObj = {
+  item1: 'Fruit',
+  item2: 'Cantaloupe'
+};
 
+function updateObject(obj){
+  obj.foo = 'foo';
+  obj.bar = 'bar';
+  obj.bizz = 'bizz';
+  obj.bang = 'bang';
+  return obj;
+}
 
+console.log(updateObject(myObj));
 
 
 /* **********************************************
