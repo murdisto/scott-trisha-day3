@@ -122,57 +122,94 @@
 /* **********************************************
 6. Cracking the code
 ********************************************** */
-
-const cipher = {
-  a: 2,
-  b: 3,
-  c: 4, 
-  d: 5
-};
-
-// cipher[word[0]]
-
-function decode(str){
-  const wordArray = str.split(' ');
-  // let decodedArray = [];
-  return wordArray.map(word => { 
-    const firstLetter = word[0];
-    const location = cipher[firstLetter] - 1;
-
-    if (isNaN(location)) {
-      return ' ';
-    } else {
-      return word[location];
-    }
-    //console.log(location);
-    // if (word[0] === Object.keys((cipher)[0])){
-    //   decodedArray.push(word.charAt(1));
-    // } else if (word[0] === Object.keys((cipher)[1])){
-    //   decodedArray.push(word.charAt(2));
-    // } else if (word[0] === Object.keys((cipher)[2])){
-    //   decodedArray.push(word.charAt(3));
-    // } else if (word[0] === Object.keys((cipher)[3])){
-    //   decodedArray.push(word.charAt(4));
-    // }  else {
-    //   decodedArray.push(' ');
-    // } 
-  })
-    .join('');
-  
-}
-
-console.log(decode('craft block argon meter bells brown croon droop'));
-
-
-
+//
+// const cipher = {
+//   a: 2,
+//   b: 3,
+//   c: 4,
+//   d: 5
+// };
+//
+// // cipher[word[0]]
+//
+// function decode(str){
+//   const wordArray = str.split(' ');
+//   // let decodedArray = [];
+//   wordArray.map(word => {
+//     const firstLetter = word[0];
+//     console.log(firstLetter);
+//     const location = cipher[firstLetter] - 1;
+//     console.log(location);
+//
+//     if (isNaN(location)) {
+//       return ' ';
+//     } else {
+//       return word[location];
+//     }
+//     //console.log(location);
+//     // if (word[0] === Object.keys((cipher)[0])){
+//     //   decodedArray.push(word.charAt(1));
+//     // } else if (word[0] === Object.keys((cipher)[1])){
+//     //   decodedArray.push(word.charAt(2));
+//     // } else if (word[0] === Object.keys((cipher)[2])){
+//     //   decodedArray.push(word.charAt(3));
+//     // } else if (word[0] === Object.keys((cipher)[3])){
+//     //   decodedArray.push(word.charAt(4));
+//     // }  else {
+//     //   decodedArray.push(' ');
+//     // }
+//   })
+//     .join('');
+//
+// }
+//
+// console.log(decode('craft block argon meter bells brown croon droop'));
+//
+//
+//
 
 /* **********************************************
 7. Factory Functions with LOTR
 ********************************************** */
+function createCharacter(name, nickname, race, origin, attack, defense) {
+  return {
+    name,
+    nickname,
+    race,
+    origin,
+    attack,
+    defense,
+    describe: function(){
+      return `${this.Name} is a ${this.Race} from ${this.Origin}.`;
+    },
+    evaluateFight: function(character) {
+      let x = 0;
+      let y = 0;
+
+      if (this.attack > character.defense){
+        x = this.attack - character.defense;
+      }
+      if (this.defense < character.attack){
+        y = character.attack - this.defense;
+      }
+      return `${character.name} takes ${x} damage and ${this.name} receives ${y} damage"`;
+    }
 
 
 
 
+  };
+};
+
+const character = [
+
+
+];
+
+
+const gandalf = createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6);
+const legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5)
+console.log(gandalf.evaluateFight(legolas));
 
 /* **********************************************
 8. BONUS: A Database Search
