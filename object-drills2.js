@@ -5,16 +5,16 @@
 /* **********************************************
 1. Object initializers and methods
 ********************************************** */
-const loaf = {
-  flour: 300,
-  water: 210,
-  hydration: function() {
-    return (this.water / this.flour) * 100;
-  }
-}
+// const loaf = {
+//   flour: 300,
+//   water: 210,
+//   hydration: function() {
+//     return (this.water / this.flour) * 100;
+//   }
+// }
 
-console.log(loaf);
-console.log(loaf.hydration());
+// console.log(loaf);
+// console.log(loaf.hydration());
 
 
 
@@ -23,8 +23,17 @@ console.log(loaf.hydration());
 2. Iterating over an object's properties
 ********************************************** */
 
+const myObj = {
+  foo: 'bee',
+  bar: 'celona',
+  fum: 'fee',
+  quux: 'something',
+  spam: 'is good'
+};
 
-
+for (const key in myObj){
+ console.log(`key: ${key} value: ${myObj[key]}`);
+}
 
 
 
