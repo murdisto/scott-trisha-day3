@@ -59,11 +59,26 @@ console.log(person.fullName());
 
 
 
-
-
 /* **********************************************
 Deleting keys
 ********************************************** */
+
+const sampleObj = {
+  foo: 'foo',
+  bar: 'bar',
+  bizz: 'bizz',
+  bang: 'bang',
+};
+
+function keyDeleter(obj) {
+  delete sampleObj.foo;
+  delete sampleObj.bar;
+  return sampleObj;
+}
+
+console.log(keyDeleter(sampleObj));
+
+
 
 
 
