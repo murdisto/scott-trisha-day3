@@ -59,19 +59,49 @@
 4. Arrays of objects
 ********************************************** */
 
+// const pam = {
+//   name: 'Pam Beesly',
+//   jobTitle: 'Receptionist'
+// };
+//
+// const jim = {
+//   name: 'Jim Halpert',
+//   jobTitle: 'Salesman'
+// };
+//
+// const michael = {
+//   name: 'Michael Scott',
+//   jobTitle: 'Regional Manager'
+// };
+//
+// const dunderStaff = [
+//   pam, jim, michael
+// ];
+//
+// for (let i in dunderStaff){
+//   console.log(`${dunderStaff[i].name} is a ${dunderStaff[i].jobTitle}`);
+// }
+
+
+
+/* **********************************************
+5. Properties that aren't there
+********************************************** */
 const pam = {
   name: 'Pam Beesly',
-  jobTitle: 'Receptionist'
+  jobTitle: 'Receptionist',
+  boss: 'Michael Scott',
 };
 
 const jim = {
   name: 'Jim Halpert',
-  jobTitle: 'Salesman'
+  jobTitle: 'Salesman',
+  boss: 'Michael Scott',
 };
 
 const michael = {
   name: 'Michael Scott',
-  jobTitle: 'Regional Manager'
+  jobTitle: 'Regional Manager',
 };
 
 const dunderStaff = [
@@ -79,17 +109,14 @@ const dunderStaff = [
 ];
 
 for (let i in dunderStaff){
-  console.log(`${dunderStaff[i].name} is a ${dunderStaff[i].jobTitle}`);
-}
+  if (dunderStaff[i].boss === undefined){
+    console.log(`"${dunderStaff[i].jobTitle} ${dunderStaff[i].name} doesn't report anybody"`);
+  } else {
+    console.log(`"${dunderStaff[i].jobTitle} ${dunderStaff[i].name} reports to ${dunderStaff[i].boss}."`);
+};
 
 
-
-/* **********************************************
-5. Properties that aren't there
-********************************************** */
-
-
-
+/*
 
 
 /* **********************************************
